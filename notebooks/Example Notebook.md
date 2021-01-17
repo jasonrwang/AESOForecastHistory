@@ -16,7 +16,42 @@ jupyter:
 # Example Notebook
 
 ```julia
-print(read("Project.toml", String))
+# Activate project environment
+] activate ../
+```
+
+```julia
+# Confirm what is in Project.toml file
+print(read("../Project.toml", String))
+```
+
+```julia
+using DataFrames
+using Gadfly
+```
+
+## Data
+
+
+Create some random data to plot
+
+```julia
+x = 1:10;
+y = rand(10);
+```
+
+```julia
+df = DataFrame(x=x, y=y)
+```
+
+```julia
+df
+```
+
+## Plot
+
+```julia
+plot(df, x=:x, y=:y,  Geom.point)
 ```
 
 ```julia
